@@ -102,9 +102,9 @@ img {
     color: var(--blue-color);
 
 }
-.table-body td button {
-    width: 40px;
-    border: 2px solid var(--border-color);
+.table-body td {
+    color: #030303;
+    font-weight: 100;
 }
 .table-body td .delete {
     cursor: pointer;

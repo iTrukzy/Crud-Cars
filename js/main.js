@@ -11,7 +11,8 @@ openForm.addEventListener('click', () => {
     formBody.style.top = '0';
 })
 
-
+const alertSuccess = document.getElementById('alert-success');
+const alertDelete = document.getElementById('alert-delete');
 const formUI = document.getElementById('form');
 const listCarsUI = document.getElementById('show-cars-list');
 
@@ -75,6 +76,8 @@ const deleteDB = (plate) => {
     let indexArray = arrayCars.findIndex((element) => element.plate === plate);
     arrayCars.splice(indexArray, 1);
     saveDB();
+
+
 }
 // const editDB = (text) => {
 
@@ -125,6 +128,8 @@ formUI.addEventListener('submit', (e) => {
 
     createItem(plateUI, brandUI, modelUI, colourUI, yearUI, priceUI);
     saveDB();
+
+
     formUI.reset();
     formBody.style.top = '-1000px';
 
