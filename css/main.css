@@ -6,13 +6,21 @@
 :root {
     --primary-color: #cfe2ff;
     --primary-hover: #ABD0FF;
-    --border-color: #EFEFEF;
     --nth-back: #f2f2f2;
+    --primary-font: 'Nunito', sans-serif;
+    --second-font: 'Work Sans', sans-serif;
+    --blue-color: #084B8A;
+    --border-color: #E6E6E6;
+    --white-f2: #f2f2f2;
+    --light-blue: #f0f6fb;
+    --green-color: #04B404;
+    --edit-color: #FAAC58;
+    --delete-color: #FE2E2E;
 }
 
 body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #34495E;
+    font-family: var(--primary-font);
+    color: var(--blue-color);
 }
 img {
     width: 100%;
@@ -20,9 +28,9 @@ img {
 /* ========================================= re ============================================= */
 .btn-primary {
     padding: 10px;
-    border: 2px solid #6aa4f5;
+    border: 2px solid var(--blue-color);
     border-radius: 5px;
-    background-color: var(--primary-color);
+    background-color: var(--blue-color);
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -30,53 +38,69 @@ img {
     background-color: #6aa4f5;
     transition: all .3s ease;
 }
+::placeholder {
+    color: var(--blue-color);
+    font-weight: 100;
+    font-family: var(--second-font);
+}
 
 
 /* ===================================== side =================================== */
 .side {
     margin-top: 4rem;
 }
+.title {
+    text-align: center;
+}
 
 
 /* =================================== add-new-car =============================== */
 .add-new-car{
+    margin-top: 4rem;
+    color: var(--blue-color);
+    font-family: var(--second-font);
+    display: flex;
+    width: 200px;
+    height: 50px;
+    padding: 10px 20px;
+    align-items: center;
+    background-color: var(--white-f2);
+    border-radius: 30px;
+    border: 1px solid var(--border-color);
     cursor: pointer;
-    color: var(--nth-back);
-    margin-top: 2rem;
-    display: block;
-    text-align: right;
-    padding-bottom: 2rem;
-    border-bottom: 2px solid var(--border-color);
+    margin-left: 1rem;
 }
+.add-new-car i {
+    margin-right: 1rem;
+    color: var(--green-color);
+ }
+ .add-new-car:hover {
+     background-color: var(--border-color);
+     border: 1px solid var(--blue-color);
+     transition: all .25s ease-in;
+ }
 
 
 /* ================================= table ======================================== */
 .table-body {
-    font-weight: bold;
-    border: 2px solid var(--border-color);
+    font-weight: 800;
+    border-top: 2px solid var(--border-color);
     margin-top: 2rem;
-    padding: 10px;
-    border-collapse: collapse;
+    padding: 8px 0;
     width: 100%;
-}
-.table-body tr td img {
-    width: 100px;
 }
 
 .table-body td, .table-body th {
     text-transform: capitalize;
-    border: 2px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
     padding: 8px;
-}
-.table-body tr:nth-child(even) {
-    background-color: #dfdfdf;
 }
 .table-body th {
     padding: 12px 0;
     text-align: left;
     padding-left: 8px;
-    background-color:  #6aa4f5;
-    color: var(--nth-back);
+    color: var(--blue-color);
+
 }
 .table-body td button {
     width: 40px;
@@ -85,8 +109,8 @@ img {
 .table-body td .delete {
     cursor: pointer;
     color: var(--nth-back);
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: var(--delete-color);
+    border: none;
 }
 .table-body td .delete:hover {
     transform: scale(1.1);
@@ -95,8 +119,8 @@ img {
 .table-body td .edit {
     cursor: pointer;
     color: var(--nth-back);
-    background-color: #ffc107;
-    border-color: #ffc107;
+    background-color: var(--edit-color);
+    border: none;
 }
 .table-body td .edit:hover {
     transform: scale(1.1);
@@ -105,23 +129,26 @@ img {
 
 /* ========================================== form-body ================================== */
 .form-body {
-    display: none;
-    padding: 3rem 15rem;
+    color: var(--blue-color);
     position: fixed;
-    top: 0;
-    bottom: 0;
+    top: -1000px;
     left: 0;
     right: 0;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: left .25s ease-in, opacity .25s ease-in;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(255,255,255, 0.9);
+    padding-top: 4rem;
+    transition: top .25s ease;
 }
 .form-contnet {
-    width: 60%;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.2)!important;
+    width: 80%;
     margin: 0 auto;
+    padding: 40px;
+    margin-top: 1rem;
 }
 .form-contnet h2 {
-    color: var(--primary-color);
+    color: var(--blue-color);
     margin-bottom: 1rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--border-color);
@@ -132,6 +159,11 @@ img {
     padding: 15px;
     margin: 10px 0;
     border-radius: 5px;
+    border: 1px solid var(--border-color);
+}
+.form-contnet form input:focus {
+    outline: none;
+    border: 1px solid var(--blue-color);
 }
 .form-contnet form label {
     color: var(--primary-color);
@@ -140,6 +172,7 @@ img {
     margin-top: 1rem;
     cursor: pointer;
 }
+
 .form-contnet form .buttons {
     display: block;
     text-align: right;
@@ -147,13 +180,15 @@ img {
     font-weight: bold;
 }
 .form-contnet form .buttons button {
-    padding: 13.5px;
+    padding: 12px;
     border: none;
-    border: 2px solid #6aa4f5;
     color: var(--nth-back);
     cursor: pointer;
+    font-weight: 800;
 }
 .form-contnet form .buttons a {
     color: var(--nth-back);
     cursor: pointer;
+    border: none;
+    font-weight: 800;
 }

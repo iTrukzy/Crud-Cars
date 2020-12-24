@@ -1,13 +1,14 @@
 const formBody = document.getElementById('form-body');
 const closeForm = document.getElementById('close-form');
 const openForm = document.getElementById('open-form');
+const formEdit = document.getElementById('form-body-edit');
 
 
 closeForm.addEventListener('click', () => {
-    formBody.style.display = 'none'; 
+    formBody.style.top = '-1000px'; 
 })
 openForm.addEventListener('click', () => {
-    formBody.style.display = 'block';
+    formBody.style.top = '0';
 })
 
 
@@ -53,6 +54,7 @@ const printDB = () => {
     } else {
         arrayCars.forEach(element => {
             listCarsUI.innerHTML += `<tr>
+                                        <td><input type="checkbox"></td>
                                         <td>${element.plate}</td>
                                         <td>${element.brand}</td>
                                         <td>${element.model}</td>
@@ -60,7 +62,7 @@ const printDB = () => {
                                         <td>${element.year}</td>
                                         <td>$ ${element.price}</td>
                                         <td><div>
-                                                <i class="btn-primary edit fas fa-edit">edit</i>
+                                                <i class="btn-primary edit fas fa-edit">edidt </i>
                                                 <i class="btn-primary delete fas fa-trash-alt">delete</i>
                                             </div>
                                         </td>
@@ -74,14 +76,37 @@ const deleteDB = (plate) => {
     arrayCars.splice(indexArray, 1);
     saveDB();
 }
-const editDB = (plate) => {
-    let plateUI = arrayCars.findIndex((element) => element.plate === plate);
+// const editDB = (text) => {
 
-    formBody.style.display = 'block';
-
+//     arrayCars = JSON.parse(localStorage.getItem('listCars'));
+//     let ArrayEdit = arrayCars.findIndex((element) => element.plate === text);
+//     document.getElementById('plateUI').value = arrayCars[ArrayEdit].plate;
+//     document.getElementById('brandUI').value = arrayCars[ArrayEdit].brand;
+//     document.getElementById('modelUI').value = arrayCars[ArrayEdit].model;
+//     document.getElementById('colourUI').value = arrayCars[ArrayEdit].colour;
+//     document.getElementById('yearUI').value = arrayCars[ArrayEdit].year;
+//     document.getElementById('priceUI').value = arrayCars[ArrayEdit].price;
     
 
-}
+    
+    
+//     console.log(ArrayEdit)
+
+//     let editButton = document.querySelector('.edit-button');
+    
+//     editButton.onsubmit = function () {
+//     let task = indexAarray.value;
+//         if (task) {
+//             self.arrayCars.splice(index, 1, task.trim())
+//         }
+        
+//     }
+//     formEdit.style.display = 'block';
+//     
+//     saveDB();
+    
+
+// }
 
 
 
@@ -101,7 +126,7 @@ formUI.addEventListener('submit', (e) => {
     createItem(plateUI, brandUI, modelUI, colourUI, yearUI, priceUI);
     saveDB();
     formUI.reset();
-    formBody.style.display = 'none';
+    formBody.style.top = '-1000px';
 
     // console.log(brandUI, modelUI, colourUI, yearUI, priceUI)
 })
@@ -117,9 +142,8 @@ listCarsUI.addEventListener('click', (e) => {
     e.preventDefault();
 
     
-
     if (e.target.innerHTML === 'edit' || e.target.innerHTML === 'delete') {
-        let text = e.path[3].childNodes[1].innerHTML;
+        let text = e.path[3].childNodes[3].innerHTML;
         if (e.target.innerHTML === 'delete') {
             //accion de eliminar
             deleteDB(text)
@@ -132,81 +156,3 @@ listCarsUI.addEventListener('click', (e) => {
 
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const cars = [
-//     {
-//         brand,
-//         model,
-//         colour,
-//         year,
-//         price
-//     },
-// ]
-
-// function addCars() {
-//     const brand  = document.getElementById('brand').value;
-//     const model = document.getElementById('model').value;
-//     const colour = document.getElementById('colour').value;
-//     const year = document.getElementById('year').value;
-//     const price = document.getElementById('price').value;
-
-
-// }
-
-
-// function printCars() {
-//     let html = '';
-//     html += `<tr>
-//                 <td><img src="#" alt="Image" id="img"></td>
-//                 <td>${brand}</td>
-//                 <td>${model}</td>
-//                 <td>${colour}</td>
-//                 <td>${year}</td>
-//                 <td>$ ${price}</td>
-//                 <td><div>
-//                         <button class="btn-primary edit"><i class="fas fa-edit"></i></button>
-//                         <button class="btn-primary delete"><i class="fas fa-trash-alt"></i></button>
-//                     </div>
-//                 </td>
-//             </tr>`
-//     document.getElementById('show-cars-list').innerHTML = html;
-// }
-// printCars();

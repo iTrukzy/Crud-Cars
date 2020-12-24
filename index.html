@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Agency</title>
     <link rel="stylesheet" href="./css/grid.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
@@ -15,11 +16,15 @@
                 <h1>Car Agency</h1>
             </div>
             <div id="open-form" class="add-new-car">
-                <span class="btn-primary">Add New Car</span>
+                <i class="material-icons">
+                    add_circle_outline
+                </i>
+                <p>Add New Car</p>
             </div>
             <table class="table-body">
                 <thead>
                     <tr>
+                        <th><input type="checkbox"></th>
                         <th>Car Plate</th>
                         <th>Brand</th>
                         <th>Model</th>
@@ -52,10 +57,6 @@
                     <input id="colour" type="text" placeholder="Car Colour...">
                     <input id="year" type="text" placeholder="Car Year...">
                     <input id="price" type="number" value="0.00" step="0.25" placeholder="Car Price..">
-                    <div>
-                        <label for="image" class="btn">Click For Add Car Image...</label>
-                        <input type="file" id="image" accept="image/*" style="visibility:hidden;" onchange="mostrar()"/>
-                    </div>
                     <div class="buttons">
                         <button type="submit" class="btn-primary add-car">Add Car</button>
                         <a id="close-form" class="btn-primary close-form">Close</a>
@@ -63,6 +64,8 @@
                     
                 </form>
             </div>
+
+            
 
         </div>
     </div>
